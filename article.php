@@ -3,7 +3,7 @@
 require 'includes.php';
 include 'header.php';
 $param = $_GET['id'];
-$product = get_product_details($param);
+$product = get_product_details($param); 
 ?>
 <div class="container">
   <h2>Buy Product</h2>
