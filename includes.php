@@ -134,27 +134,36 @@ global $client;
 
 
 function get_products_list() {
+  // global $client;	
+	// $products = array();
+	// $query = new \Contentful\Delivery\Query;
+	// $query->setContentType('product');
+	// $query->setLimit(3);
+	// $productEntriesByPrice = $client->getEntries($query);											
+	// $assets = json_encode($productEntriesByPrice, JSON_PRETTY_PRINT);																									
+	// $assets_obj = json_decode( $assets, true );
+
+	// foreach($assets_obj['items'] as $item) {		
+		// $product = array();
+		// $product['id'] = $item['sys']['id'];
+		// $product['name'] = $item['fields']['title'];
+		// $product['price'] = $item['fields']['price'];		
+		// $product['description'] = $item['fields']['description'];	
+	  // $asset = $client->getAsset($item['fields']['image']['sys']['id']);
+	  // $product['image'] = $asset->getFile()->getUrl();		
+    // $products[] = $product;		
+	// }
+
   global $client;	
 	$products = array();
 	$query = new \Contentful\Delivery\Query;
-	$query->setContentType('product');
-	$query->setLimit(3);
+	$query->setContentType('simpleProducts');
+	//$query->setLimit(3);
 	$productEntriesByPrice = $client->getEntries($query);											
 	$assets = json_encode($productEntriesByPrice, JSON_PRETTY_PRINT);																									
-	$assets_obj = json_decode( $assets, true );
+	$assets_obj = json_decode( $assets, true );	
 
-	foreach($assets_obj['items'] as $item) {		
-		$product = array();
-		$product['id'] = $item['sys']['id'];
-		$product['name'] = $item['fields']['title'];
-		$product['price'] = $item['fields']['price'];		
-		$product['description'] = $item['fields']['description'];	
-	  $asset = $client->getAsset($item['fields']['image']['sys']['id']);
-	  $product['image'] = $asset->getFile()->getUrl();		
-    $products[] = $product;		
-	}
-		
-	return $products;
+	return $assets_obj;
 }
 
 
