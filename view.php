@@ -2,15 +2,15 @@
 <?php
 
 use Contentful\Delivery\Client;
-require_once '/vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 $spaceID = 'wjaul0uqh9mi';
 $accessToken = '87f82c16ddb35bad4d641a7c7f7fda5d8e658a398cc8868cab32742b25918e67';
 $client = new Client($accessToken, $spaceID);
-$entries = $client->getEntries(); 
+$entries = $client->getEntries();
 
-echo "<pre>";
-print_r($entries);
-exit;
+print_r($entries); 
+
+
 
  //require 'includes.php';
  //include 'menu.php';
