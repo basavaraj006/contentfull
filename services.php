@@ -12,7 +12,6 @@ foreach($servicess as $item) {
 	$services[] = $service;	
 }
 
-
 ?>
 
 <section id="services">
