@@ -16,7 +16,6 @@ if (count($entries) === 0) {
 }
 else {
     echo "You have entries with these IDs:<br />";
-		print_r($entries);
 		//$menuitems = array(); 
 			
 		// contentful.php 1.0
