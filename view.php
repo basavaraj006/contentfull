@@ -1,6 +1,4 @@
-<body id="page-top">
 <?php
-
 use Contentful\Delivery\Client;
 require_once __DIR__ . '/vendor/autoload.php';
 $spaceID = 'wjaul0uqh9mi';
@@ -10,8 +8,9 @@ $entries = $client->getEntries();
 
 print_r($entries); 
 
-
-
+?>
+<body id="page-top">
+<?php
  //require 'includes.php';
  //include 'menu.php';
  //include 'header-part.php';
