@@ -7,5 +7,5 @@ $client = new Client($accessToken, $spaceID);
 $entries = $client->getEntries();
 echo "hello";
 print_r($entries);
-//include 'footer.php';
+//include 'footer.php'; 
 ?>
