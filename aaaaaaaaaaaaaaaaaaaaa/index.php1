@@ -1,0 +1,22 @@
+<?php
+
+use Contentful\Delivery\Client;
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+$spaceID = 'fipxa5wyd6vq';
+$accessToken = '16f8ffc8403180f4df4122fccd3059769a855dee4279fdfa8149363a8b9f6154';
+
+$client = new Client($accessToken, $spaceID);
+
+$entries = $client->getEntries();
+
+if (count($entries) === 0) {
+    echo "Ups, you got no entries in your space. How about creating some?<br />";
+}
+else {
+    echo "You have entries with these IDs:<br />";
+    foreach ($entries as $entry) {
+        echo $entry->getId() . "<br />";
+    }
+}
