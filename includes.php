@@ -207,6 +207,36 @@ function get_contact_details($id = '1LveRdswNm4MUEA2q8oEKm') {
 	return $return;		
 }
 
+function get_map_details($id = '2wYajJGF1GqWewa20o6kyI') {
+	global $client;	
+	$return = array();
+	
+	$content = $client->getEntry($id);
+	$contentstructure = json_encode($content, JSON_PRETTY_PRINT);																									
+	$contentstructure_array = json_decode( $contentstructure, true );
 
+	$return['lat'] = $contentstructure_array['fields']['location']['lat'];
+	$return['lang'] = $contentstructure_array['fields']['location']['long'];
+		
 
+	return $return;		
+}
 
+function get_project_details() {
+  global $client;	
+	$projects = array();
+	$query = new \Contentful\Delivery\Query;
+	$query->setContentType('project');
+	$productEntriesByPrice = $client->getEntries($query);											
+	$assets = json_encode($productEntriesByPrice, JSON_PRETTY_PRINT);																									
+	$assets_obj = json_decode( $assets, true );
+	
+	foreach($assets_obj['items'] as $item) {
+			$project = array();
+		$project[] = $item['fields']['name'];		
+		$project[] = $item['fields']['date'];	
+		$project[] = $item['fields']['location'];	
+		$projects[] = $project;	
+	}	
+	return $projects;		
+}

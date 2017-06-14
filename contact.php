@@ -1,11 +1,12 @@
 <?php
+
 $contact = get_contact_details();
 $contactus_title = $contact['title'];
 $contactus_body = $contact['description'];
 $contact_no = $contact['phone'];
 $email = $contact['email'];
 
-$footer_menus = array('Projects List', 'Project Details', 'Locations', 'Upcoming');
+//$footer_menus = array('#' => 'Projects List', '#' => 'Project Details', '#' => 'Locations', '#' => 'Upcoming');
 
 
 
@@ -34,9 +35,8 @@ $footer_menus = array('Projects List', 'Project Details', 'Locations', 'Upcoming
 <aside class="bg-dark">
 
 			<ul class="list-groups">
-			  <?php foreach($footer_menus as $item) { ?>
-					  <li class="list-group-item"><a href="list.php"><?php print $item;?></a></li>
-				<?php }?>	
+					  <li class="list-group-item"><a href="map.php" target="_blank">Locations</a></li>
+					  <li class="list-group-item"><a href="project.php" target="_blank">All projects</a></li>						
 			</ul>
 
 </aside>		
